@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#020204">
+    <title>RTX — Серия видеокарт GeForce RTX | RTX HUB</title>
+    <meta name="description" content="Всё о серии NVIDIA GeForce RTX: трассировка лучей, DLSS, ядра CUDA и Tensor, бенчмарки и гайд по выбору RTX 40 и 50 серий.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/critical.css">
+</head>
+<body>
+
+    <div class="grain"></div>
+    <div id="page-wipe"></div>
+    <div id="wt-page-wipe"></div>
+    <div id="global-progress"></div>
+
+    <div id="preloader" aria-hidden="true">
+        <div class="preloader-overlay" style="background:radial-gradient(ellipse at center, rgba(118,185,0,0.12) 0%, var(--bg) 70%);"></div>
+        <div class="pl-grid"></div>
+        <div class="pl-scan"></div>
+        <i class="pl-corner tl"></i><i class="pl-corner tr"></i><i class="pl-corner bl"></i><i class="pl-corner br"></i>
+        <div class="pl-meta tl">RTX//HUB <span>BUILD 2026.10</span></div>
+        <div class="pl-meta tr">ГРАФИКА <span>ТРАССИРОВКА В РЕАЛЬНОМ ВРЕМЕНИ</span></div>
+        <div class="pl-core">
+            <div class="loader-brand" id="loader-brand">RTX HUB</div>
+            <div class="pl-count"><span id="loader-progress">000</span><em>%</em></div>
+            <div class="pl-ticks idle" id="loader-ticks"></div>
+            <div class="pl-stage" id="loader-stage">ЗАГРУЗКА</div>
+        </div>
+        <div class="pl-log" id="loader-log"><div></div><div></div><div></div><div></div><div></div></div>
+        <div class="pl-meta br">SESSION <span id="loader-session">0x0000</span> ·· <span id="loader-clock">00.000</span>S</div>
+        <div class="pl-flash"></div>
+    </div>
+
+    <script src="js/preloader.js"></script>
+
+    <nav id="navbar">
+        <div class="logo">RTX HUB</div>
+        <div class="nav-clock" id="nav-clock"><span class="nav-clock-label">GPU</span><span id="dubai-time">RTX</span></div>
+        <div class="nav-links">
+            <a href="#capabilities" class="nav-link nav-cta interactable">Технологии</a>
+            <a href="#work-wrapper" class="nav-link interactable">Модели</a>
+            <a href="#reel" class="nav-link interactable">Витрина</a>
+            <a href="#process" class="nav-link interactable">История</a>
+            <a href="#testimonials" class="nav-link interactable">Обзоры</a>
+            <a href="#faq" class="nav-link interactable">Гайд</a>
+            <a href="#contact" class="nav-link interactable">Конфиг</a>
+        </div>
+        <button class="hamburger interactable" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-close interactable" onclick="closeMobileMenu()" aria-label="Close navigation menu">&#x2715;</button>
+        <div class="mobile-menu-brand">RTX HUB</div>
+        <div class="mobile-menu-links">
+            <a href="#hero" class="m-link" onclick="closeMobileMenu()">Главная</a>
+            <a href="#capabilities" class="m-link" onclick="closeMobileMenu()">Технологии</a>
+            <a href="#work-wrapper" class="m-link" onclick="closeMobileMenu()">Модели</a>
+            <a href="#reel" class="m-link" onclick="closeMobileMenu()">Витрина</a>
+            <a href="#process" class="m-link" onclick="closeMobileMenu()">История</a>
+            <a href="#faq" class="m-link" onclick="closeMobileMenu()">Гайд</a>
+            <a href="#contact" class="m-link" onclick="closeMobileMenu()">Конфиг</a>
+        </div>
+    </div>
+
+    <main id="main-content" role="main">
+        <section id="hero">
+            <div class="hero-center-label">
+                <div class="hero-cl-line"></div>
+                <span>Серия GeForce RTX</span>
+                <div class="hero-cl-line"></div>
+            </div>
+            <div class="hero-bottom">
+                <div class="hero-left">
+                    <h1 class="decode-text" data-text="ЗА ГРАНЬЮ РЕАЛЬНОСТИ">ЗА ГРАНЬЮ РЕАЛЬНОСТИ</h1>
+                    <div id="typed-heading" style="color:var(--accent);" aria-live="polite"><span id="typed-text"></span><span class="typed-cursor">|</span></div>
+                </div>
+                <div class="hero-right fade-up">
+                    <p class="hero-desc">Трассировка лучей. DLSS. Графика с ускорением AI. Серия GeForce RTX превращает пиксели в миры — от доступных 60-серий до флагманских 90-серий.</p>
+                    <div class="hero-scroll-hint"><div class="scroll-line"></div>ЛИСТАЙТЕ ВНИЗ</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-1">
+            <p class="manifesto-text fade-up">
+                "Если говорить просто — RTX это платформа, где встречаются растеризация, трассировка лучей и AI. Каждое поколение переопределяет возможности графики реального времени."
+            </p>
+            <p class="fade-up" style="margin-top:2rem;color:var(--text-muted);font-size:1.2rem;text-align:center;font-weight:500;">
+                From Ada Lovelace to Blackwell — the architecture keeps evolving, but the goal stays the same: cinematic fidelity at interactive frame rates.
+            </p>
+        </section>
+
+        
+        <div class="marquee-section fade-up">
+            <div class="marquee-track" id="marquee-track">
+                <div class="marquee-item"><span>RTX HUB</span><div class="marquee-dot"></div><span>GeForce RTX</span><div class="marquee-dot"></div><span>Ray Tracing</span><div class="marquee-dot"></div><span>DLSS</span><div class="marquee-dot"></div><span>Ядра CUDA</span><div class="marquee-dot"></div><span>Tensor Cores</span><div class="marquee-dot"></div><span>Blackwell</span><div class="marquee-dot"></div></div>
+                <div class="marquee-item"><span>RTX HUB</span><div class="marquee-dot"></div><span>GeForce RTX</span><div class="marquee-dot"></div><span>Ray Tracing</span><div class="marquee-dot"></div><span>DLSS</span><div class="marquee-dot"></div><span>Ядра CUDA</span><div class="marquee-dot"></div><span>Tensor Cores</span><div class="marquee-dot"></div><span>Blackwell</span><div class="marquee-dot"></div></div>
+            </div>
+        </div>
+
+        
+        <div class="client-marquee-section">
+            <div style="text-align:center; margin-bottom:4rem;">
+                <span class="kicker fade-up">Партнёры экосистемы</span>
+            </div>
+            <div class="fade-up client-rows" style="--d:1">
+                <div class="client-marquee-track row-1" id="client-row-1">
+                    <div class="client-name partner-name">NVIDIA<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">ASUS<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">MSI<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">Gigabyte<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">ZOTAC<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">PNY<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">GALAX<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">EVGA<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">Colorful<div class="client-dot"></div></div>
+                    
+                    <div class="client-name partner-name">NVIDIA<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">ASUS<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">MSI<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">Gigabyte<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">ZOTAC<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">PNY<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">GALAX<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">EVGA<div class="client-dot"></div></div>
+                    <div class="client-name partner-name">Colorful<div class="client-dot"></div></div>
+                </div>
+            </div>
+        </div>
+
+        
+        <section id="reel" class="reel" style="background-image:url('assets/img/geforce-ada-4090-web-og-1200x630.jpg');">
+            <div class="reel-vignette"></div>
+            <div class="reel-content">
+                <span class="kicker fade-up">Линейка</span>
+                <h2 class="reel-headline decode-text" data-text="СОЗДАЁМ RTX">СОЗДАЁМ RTX</h2>
+                <div class="reel-divider"></div>
+                <h2 class="reel-headline decode-text" data-text="РЕАЛЬНОСТЬ" style="color:var(--accent);">РЕАЛЬНОСТЬ</h2>
+                <p class="reel-sub fade-up">Ray Tracing &nbsp;··&nbsp; DLSS &nbsp;··&nbsp; AI Graphics</p>
+            </div>
+        </section>
+
+        
+        <section id="stats">
+            <div class="stats-grid">
+                <div class="stat-item fade-up" style="--d:0">
+                    <div class="stat-value"><span class="stat-num" data-target="90">0</span><span class="stat-suffix">+</span></div>
+                    <span class="stat-label">Тфлопс (RTX 4090)</span>
+                </div>
+                <div class="stat-item fade-up" style="--d:1">
+                    <div class="stat-value"><span class="stat-num" data-target="16384">0</span></div>
+                    <span class="stat-label">Ядра CUDA</span>
+                </div>
+                <div class="stat-item fade-up" style="--d:2">
+                    <div class="stat-value"><span class="stat-num" data-target="24">0</span><span class="stat-suffix"> GB</span></div>
+                    <span class="stat-label">Память GDDR6X</span>
+                </div>
+                <div class="stat-item fade-up" style="--d:3">
+                    <div class="stat-value"><span class="stat-num" data-target="4">0</span></div>
+                    <span class="stat-label">Поколения DLSS</span>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="capabilities">
+            <div class="fade-up"><span class="kicker">Технологии</span><h2 class="decode-text" data-text="Возможности RTX">Возможности RTX</h2></div>
+            <div class="bento-grid">
+                <div class="bento-item fade-up interactable">
+                    <img class="bento-bg" src="assets/img/geforce-ada-4090-web-og-1200x630.jpg" alt="" loading="lazy">
+                    <div class="bento-head"><span class="bento-num">01 //</span><h3>Трассировка лучей в реальном времени</h3></div>
+                    <div class="bento-foot"><p>Выделенные RT-ядра моделируют свет, тени и отражения для кинематографичной картинки в реальном времени.</p>
+                    <a class="bento-link interactable" href="#faq">Подробнее &rarr;</a></div>
+                </div>
+                <div class="bento-item fade-up interactable">
+                    <img class="bento-bg" src="assets/img/geforce-rtx-4070-super-og-1200x630.jpg" alt="" loading="lazy">
+                    <div class="bento-head"><span class="bento-num">02 //</span><h3>DLSS — AI Upscaling</h3></div>
+                    <div class="bento-foot"><p>Тензорные ядра повышают FPS с помощью ИИ — от DLSS 2 Super Resolution до DLSS 4 Multi Frame Gen.</p>
+                    <a class="bento-link interactable" href="#faq">Подробнее &rarr;</a></div>
+                </div>
+                <div class="bento-item fade-up interactable">
+                    <img class="bento-bg" src="assets/img/geforce-rtx-4080-super-og-1200x630.jpg" alt="" loading="lazy">
+                    <div class="bento-head"><span class="bento-num">03 //</span><h3>Ядра CUDA и Tensor</h3></div>
+                    <div class="bento-foot"><p>Тысячи ядер CUDA параллельно обрабатывают растеризацию, физику и ИИ-вычисления.</p>
+                    <a class="bento-link interactable" href="#faq">Подробнее &rarr;</a></div>
+                </div>
+                <div class="bento-item fade-up interactable">
+                    <img class="bento-bg" src="assets/img/geforce-rtx-4060-ti-og-1200x630.jpg" alt="" loading="lazy">
+                    <div class="bento-head"><span class="bento-num">04 //</span><h3>NVENC и Broadcast</h3></div>
+                    <div class="bento-foot"><p>Аппаратный кодировщик и ИИ-эффекты для стримеров, создателей контента и видеомонтажёров.</p>
+                    <a class="bento-link interactable" href="#faq">Подробнее &rarr;</a></div>
+                </div>
+            </div>
+            <div class="cap-more fade-up" role="navigation" aria-label="More tech">
+                <span>Также:</span>
+                <a href="#faq" class="interactable">Reflex</a>
+                <a href="#faq" class="interactable">G-Sync</a>
+                <a href="#faq" class="interactable">Генерация кадров</a>
+                <a href="#faq" class="interactable">Трассировка пути</a>
+                <a href="#faq" class="interactable">Драйверы Studio</a>
+            </div>
+        </section>
+
+        
+        <section id="process">
+            <div class="fade-up"><span class="kicker">Эволюция</span><h2 class="decode-text" data-text="История RTX">История RTX</h2></div>
+            <div class="process-grid" id="process-grid">
+                <div class="process-rail" aria-hidden="true"></div>
+                <div class="process-step fade-up">
+                    <div class="process-connector"></div>
+                    <span class="process-step-num">2018 //</span>
+                    <h3 class="process-step-title">Turing — First RTX</h3>
+                    <p class="process-step-desc">Серия RTX 20 принесла в потребительские GPU трассировку лучей в реальном времени и DLSS 1.0.</p>
+                </div>
+                <div class="process-step fade-up">
+                    <div class="process-connector"></div>
+                    <span class="process-step-num">2020 //</span>
+                    <h3 class="process-step-title">Ampere — 2nd Gen RT</h3>
+                    <p class="process-step-desc">Серия RTX 30 удвоила пропускную способность трассировки лучей и принесла DLSS 2.0.</p>
+                </div>
+                <div class="process-step fade-up">
+                    <div class="process-connector"></div>
+                    <span class="process-step-num">2022 //</span>
+                    <h3 class="process-step-title">Ada Lovelace</h3>
+                    <p class="process-step-desc">RTX 40 series: 3rd gen RT cores, DLSS 3 Генерация кадров, AV1 encode.</p>
+                </div>
+                <div class="process-step fade-up">
+                    <div class="process-connector"></div>
+                    <span class="process-step-num">2025 //</span>
+                    <h3 class="process-step-title">Blackwell</h3>
+                    <p class="process-step-desc">Серия RTX 50 приносит DLSS 4 Multi Frame Gen и трассировку пути нового поколения.</p>
+                </div>
+                <div class="process-step fade-up">
+                    <div class="process-connector"></div>
+                    <span class="process-step-num">Next //</span>
+                    <h3 class="process-step-title">Что дальше</h3>
+                    <p class="process-step-desc">Нейрорендеринг, глубокая интеграция AI и кинематографичные миры в реальном времени.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="lab-teaser">
+            <div class="fade-up"><span class="kicker">Партнёры AIB</span><h2 class="decode-text" data-text="Кастомные платы">Кастомные платы</h2></div>
+            <p class="lab-t-sub fade-up">Founders Editions и кастомные дизайны от всех крупных партнёров.</p>
+            <div class="lab-t-grid" id="lab-teaser-grid">
+                <a class="lab-t-card fade-up interactable" href="#model-rtx-4090">
+                    <div class="lab-t-thumb"><img src="assets/img/3889-front.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="NVIDIA RTX 4090 Founders Edition"></div>
+                    <div class="lab-t-body"><span class="lab-t-meta">Flagship ·· FE</span><h3>RTX 4090 FE</h3><p>Флагман Ada: 24 ГБ GDDR6X и 16384 ядер CUDA.</p></div>
+                </a>
+                <a class="lab-t-card fade-up interactable" href="#model-rtx-4080-super">
+                    <div class="lab-t-thumb"><img src="assets/img/geforce-rtx-4080-super-og-1200x630.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="RTX 4080 Super"></div>
+                    <div class="lab-t-body"><span class="lab-t-meta">Enthusiast ·· Super</span><h3>RTX 4080 Super</h3><p>Улучшенный кремний AD103 по цене ниже оригинальной 4080.</p></div>
+                </a>
+                <a class="lab-t-card fade-up interactable" href="#model-rtx-4070-super">
+                    <div class="lab-t-thumb"><img src="assets/img/geforce-rtx-4070-super-og-1200x630.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="RTX 4070 Super"></div>
+                    <div class="lab-t-body"><span class="lab-t-meta">Performance ·· Super</span><h3>RTX 4070 Super</h3><p>Большой прирост над 4070 для 1440p с трассировкой лучей.</p></div>
+                </a>
+            </div>
+        </section>
+
+        
+        <section class="cta-banner">
+            <div class="cta-divider"></div>
+            <h2 class="decode-text fade-up" data-text="Готовы к апгрейду?">Готовы к апгрейду?</h2>
+            <p class="cta-sub fade-up">Выберите RTX под своё разрешение, бюджет и задачи.</p>
+            <div class="fade-up" style="--d:2"><a href="#work-wrapper" class="cta-btn interactable magnetic">Смотреть модели</a></div>
+            <div class="cta-divider"></div>
+        </section>
+
+        
+        <div id="work-wrapper">
+            <div class="work-sticky">
+                <div class="work-header fade-up">
+                    <h2 class="decode-text" data-text="Линейка RTX">Линейка RTX</h2>
+                    <p style="color:var(--text-muted);font-weight:500;margin-top:0.5rem;letter-spacing:0.05em;">НАЖМИТЕ НА КАРТОЧКУ, ЧТОБЫ УЗНАТЬ БОЛЬШЕ.</p>
+                </div>
+                <div class="work-counter" id="work-counter">
+                    <span id="work-counter-current">01</span>
+                    <span class="work-counter-sep"> / </span>
+                    <span class="work-counter-total">06</span>
+                </div>
+                <div class="swipe-hint">SWIPE TO EXPLORE</div>
+                <div class="work-track" id="work-track">
+                    <div id="model-rtx-4090" class="h-project interactable" style="background-image:url('assets/img/3889-front.jpg')">
+                        <div class="h-project-click"></div><div class="h-project-overlay"></div>
+                        <span class="h-num">01</span>
+                        <h3 class="h-title">RTX 4090</h3>
+                        <span class="h-cat">Flagship ·· 24 GB ·· 16384 CUDA</span>
+                    </div>
+                    <div id="model-rtx-4080-super" class="h-project interactable" style="background-image:url('assets/img/geforce-rtx-4080-super-og-1200x630.jpg')">
+                        <div class="h-project-click"></div><div class="h-project-overlay"></div>
+                        <span class="h-num">02</span>
+                        <h3 class="h-title">RTX 4080 Super</h3>
+                        <span class="h-cat">Enthusiast ·· 16 GB ·· 10240 CUDA</span>
+                    </div>
+                    <div id="model-rtx-4070-super" class="h-project interactable" style="background-image:url('assets/img/geforce-rtx-4070-super-og-1200x630.jpg')">
+                        <div class="h-project-click"></div><div class="h-project-overlay"></div>
+                        <span class="h-num">03</span>
+                        <h3 class="h-title">RTX 4070 Super</h3>
+                        <span class="h-cat">Performance ·· 12 GB ·· 7168 CUDA</span>
+                    </div>
+                    <div id="model-rtx-4060-ti" class="h-project interactable" style="background-image:url('assets/img/geforce-rtx-4060-ti-og-1200x630.jpg')">
+                        <div class="h-project-click"></div><div class="h-project-overlay"></div>
+                        <span class="h-num">04</span>
+                        <h3 class="h-title">RTX 4060 Ti</h3>
+                        <span class="h-cat">Mid-range ·· 8/16 GB ·· 4352 CUDA</span>
+                    </div>
+                    <div id="model-rtx-4060" class="h-project interactable" style="background-image:url('assets/img/geforce-ada-4090-web-og-1200x630.jpg')">
+                        <div class="h-project-click"></div><div class="h-project-overlay"></div>
+                        <span class="h-num">05</span>
+                        <h3 class="h-title">RTX 4060</h3>
+                        <span class="h-cat">Entry ·· 8 GB ·· 3072 CUDA</span>
+                    </div>
+                    <div id="model-rtx-5090" class="h-project interactable" style="background-image:url('assets/img/3889-front-thumb.jpg')">
+                        <div class="h-project-click"></div><div class="h-project-overlay"></div>
+                        <span class="h-num">06</span>
+                        <h3 class="h-title">RTX 5090</h3>
+                        <span class="h-cat">Blackwell ·· Flagship ·· Next-Gen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <section id="testimonials">
+            <div class="fade-up"><span class="kicker">Мнения сообщества</span><h2 class="decode-text" data-text="Что говорят обзорщики">Что говорят обзорщики</h2></div>
+            <div class="testimonial-slider fade-up" id="testimonial-slider" style="--d:1">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-quote">The RTX 4090 is in a class of its own — path tracing in Cyberpunk feels like a generational leap, and DLSS 3 makes it playable.</p>
+                    <div class="testimonial-author"><strong>Технообзор</strong>Hardware ·· 2024</div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">RTX 4070 Super — золотая середина для 1440p: отличная производительность с трассировкой без флагманской цены.</p>
+                    <div class="testimonial-author"><strong>PC Gamer</strong>Performance ·· 2024</div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">DLSS 4 Multi Frame Gen on Blackwell is the biggest uplift we've seen — smooth 4K with ray tracing fully enabled.</p>
+                    <div class="testimonial-author"><strong>Digital Foundry</strong>Graphics ·· 2025</div>
+                </div>
+            </div>
+            <div class="testimonial-nav fade-up" style="--d:3">
+                <button class="testimonial-arrow interactable" onclick="prevSlide()" aria-label="Previous testimonial">&#8592;</button>
+                <div class="testimonial-dots">
+                    <button class="t-dot active" onclick="goToSlide(0)"></button>
+                    <button class="t-dot" onclick="goToSlide(1)"></button>
+                    <button class="t-dot" onclick="goToSlide(2)"></button>
+                </div>
+                <button class="testimonial-arrow interactable" onclick="nextSlide()" aria-label="Next testimonial">&#8594;</button>
+            </div>
+        </section>
+
+        
+        <section id="faq">
+            <div class="fade-up"><span class="kicker">Вопросы</span><h2 class="decode-text" data-text="Гайд по покупке RTX">Гайд по покупке RTX</h2></div>
+            <div class="faq-list">
+                <div class="faq-item fade-up" style="--d:0">
+                    <button class="faq-question interactable" onclick="toggleFaq(this)">
+                        Какая видеокарта RTX нужна для 1080p / 1440p / 4K?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Для 1080p достаточно RTX 4060. Для 1440p с высокой частотой смотрите на RTX 4070 Super или 4070 Ti Super. Для 4K с трассировкой лучше RTX 4080 Super или 4090 (и 5090 для Blackwell).</div></div>
+                </div>
+                <div class="faq-item fade-up" style="--d:1">
+                    <button class="faq-question interactable" onclick="toggleFaq(this)">
+                        Стоит ли DLSS своих денег?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Да — DLSS рендерит в более низком разрешении, а затем масштабирует с помощью AI, часто давая +40–100% FPS при минимальной потере качества. Генерация кадров даёт ещё больше на картах серий 40 и 50.</div></div>
+                </div>
+                <div class="faq-item fade-up" style="--d:2">
+                    <button class="faq-question interactable" onclick="toggleFaq(this)">
+                        Сколько видеопамяти мне нужно?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><div class="faq-answer-inner">8 ГБ хватит для 1080p. 12 ГБ достаточно для 1440p. 16–24 ГБ важны для 4K, моддинга и ИИ-задач. Выбирайте вариант с большей памятью, если он есть (например, 4060 Ti 16 ГБ).</div></div>
+                </div>
+                <div class="faq-item fade-up" style="--d:3">
+                    <button class="faq-question interactable" onclick="toggleFaq(this)">
+                        FE против кастомных AIB-карт?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Founders Editions отличаются чистым дизайном и честной ценой. AIB-карты (ASUS, MSI, Gigabyte) часто холоднее/тише или выходят с заводским разгоном. У обеих одинаковый GPU-кремний.</div></div>
+                </div>
+                <div class="faq-item fade-up" style="--d:4">
+                    <button class="faq-question interactable" onclick="toggleFaq(this)">
+                        Поддерживают ли видеокарты RTX ИИ-задачи?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Да — тензорные ядра ускоряют ИИ-инференс, stable diffusion и LLM. RTX также поставляется с NVIDIA Broadcast, Canvas и драйверами Studio для создателей контента.</div></div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="contact">
+            <div class="fade-up">
+                <span class="kicker">Подбор</span>
+                <h2 class="decode-text" style="margin-bottom:2rem;" data-text="Соберите свой ПК.">Соберите свой ПК.</h2>
+                <p style="color:var(--text-muted);font-size:1.1rem;max-width:400px;line-height:1.6;font-weight:500;">Расскажите о разрешении, бюджете и задачах — мы подберём подходящую RTX.</p>
+            </div>
+            <div class="fade-up" style="margin:2rem 0;">
+                <span class="kicker">Игрокам</span>
+                <h3 style="font-family:var(--font-head);text-transform:uppercase;letter-spacing:0.04em;margin:0.5rem 0 1rem;">Рекомендуемые игры для выбранной RTX</h3>
+                <p style="color:var(--text-muted);max-width:560px;margin-bottom:1rem;">Выберите видеокарту — покажем примерные настройки, разрешение и FPS для популярных игр (значения усреднённые по публичным бенчмаркам и будут отличаться от игры к игре).</p>
+                <select id="gpu-pick" class="sr-only" aria-hidden="true" tabindex="-1">
+                    <option value="rtx-2060">GeForce RTX 2060</option>
+                    <option value="rtx-2070s">GeForce RTX 2070 Super</option>
+                    <option value="rtx-2080ti">GeForce RTX 2080 Ti</option>
+                    <option value="rtx-3060">GeForce RTX 3060</option>
+                    <option value="rtx-3070">GeForce RTX 3070</option>
+                    <option value="rtx-3080">GeForce RTX 3080</option>
+                    <option value="rtx-3090">GeForce RTX 3090</option>
+                    <option value="rtx-4060" selected>GeForce RTX 4060</option>
+                    <option value="rtx-4060ti">GeForce RTX 4060 Ti</option>
+                    <option value="rtx-4070">GeForce RTX 4070</option>
+                    <option value="rtx-4070s">GeForce RTX 4070 Super</option>
+                    <option value="rtx-4070ti-s">GeForce RTX 4070 Ti Super</option>
+                    <option value="rtx-4080s">GeForce RTX 4080 Super</option>
+                    <option value="rtx-4090">GeForce RTX 4090</option>
+                    <option value="rtx-5060">GeForce RTX 5060</option>
+                    <option value="rtx-5060ti">GeForce RTX 5060 Ti</option>
+                    <option value="rtx-5070">GeForce RTX 5070</option>
+                    <option value="rtx-5070ti">GeForce RTX 5070 Ti</option>
+                    <option value="rtx-5080">GeForce RTX 5080</option>
+                    <option value="rtx-5090">GeForce RTX 5090</option>
+                </select>
+                <div class="custom-select interactable" id="gpu-custom">
+                    <div class="custom-select-trigger" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span>GeForce RTX 4060</span>
+                        <div class="custom-select-arrow"><svg viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                    </div>
+                    <div class="custom-select-options" role="listbox" tabindex="-1">
+                        <div class="custom-select-group">RTX 20 series</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-2060">GeForce RTX 2060</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-2070s">GeForce RTX 2070 Super</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-2080ti">GeForce RTX 2080 Ti</div>
+                        <div class="custom-select-group">RTX 30 series</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-3060">GeForce RTX 3060</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-3070">GeForce RTX 3070</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-3080">GeForce RTX 3080</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-3090">GeForce RTX 3090</div>
+                        <div class="custom-select-group">RTX 40 series</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-4060" aria-selected="true" class="selected">GeForce RTX 4060</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-4060ti">GeForce RTX 4060 Ti</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-4070">GeForce RTX 4070</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-4070s">GeForce RTX 4070 Super</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-4070ti-s">GeForce RTX 4070 Ti Super</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-4080s">GeForce RTX 4080 Super</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-4090">GeForce RTX 4090</div>
+                        <div class="custom-select-group">RTX 50 series</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-5060">GeForce RTX 5060</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-5060ti">GeForce RTX 5060 Ti</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-5070">GeForce RTX 5070</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-5070ti">GeForce RTX 5070 Ti</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-5080">GeForce RTX 5080</div>
+                        <div class="custom-select-option" role="option" data-value="rtx-5090">GeForce RTX 5090</div>
+                    </div>
+                </div>
+                <div id="gpu-games" class="gpu-games" role="table" aria-label="Рекомендуемые игры и настройки" aria-live="polite"></div>
+            </div>
+            <div class="form-panel fade-up interactable">
+                <div class="input-group"><input id="form-name" name="name" autocomplete="name" type="text" placeholder=" " required aria-label="Полное имя"><label>Полное имя</label></div>
+                <div class="input-group"><input id="form-email" name="email" autocomplete="email" inputmode="email" type="email" placeholder=" " required aria-label="Email"><label>Email</label></div>
+                <div class="input-group"><input id="form-company" name="company" autocomplete="organization" type="text" placeholder=" " aria-label="Задача / игра"><label>Задача / игра</label></div>
+                <div class="input-group select-group">
+                    <label for="form-service" style="position:absolute;left:-9999px;">Интересующая модель RTX</label>
+                    <select id="form-service" class="gpu-pick" required aria-label="Интересующая модель RTX">
+                        <option value="">Интересующая модель RTX</option>
+                        <optgroup label="RTX 20 series">
+                            <option value="rtx-2060">GeForce RTX 2060</option>
+                            <option value="rtx-2070s">GeForce RTX 2070 Super</option>
+                            <option value="rtx-2080ti">GeForce RTX 2080 Ti</option>
+                        </optgroup>
+                        <optgroup label="RTX 30 series">
+                            <option value="rtx-3060">GeForce RTX 3060</option>
+                            <option value="rtx-3070">GeForce RTX 3070</option>
+                            <option value="rtx-3080">GeForce RTX 3080</option>
+                            <option value="rtx-3090">GeForce RTX 3090</option>
+                        </optgroup>
+                        <optgroup label="RTX 40 series">
+                            <option value="rtx-4060">GeForce RTX 4060</option>
+                            <option value="rtx-4060ti">GeForce RTX 4060 Ti</option>
+                            <option value="rtx-4070">GeForce RTX 4070</option>
+                            <option value="rtx-4070s">GeForce RTX 4070 Super</option>
+                            <option value="rtx-4070ti-s">GeForce RTX 4070 Ti Super</option>
+                            <option value="rtx-4080s">GeForce RTX 4080 Super</option>
+                            <option value="rtx-4090">GeForce RTX 4090</option>
+                        </optgroup>
+                        <optgroup label="RTX 50 series">
+                            <option value="rtx-5060">GeForce RTX 5060</option>
+                    <option value="rtx-5060ti">GeForce RTX 5060 Ti</option>
+                    <option value="rtx-5070">GeForce RTX 5070</option>
+                    <option value="rtx-5070ti">GeForce RTX 5070 Ti</option>
+                    <option value="rtx-5080">GeForce RTX 5080</option>
+                    <option value="rtx-5090" selected>GeForce RTX 5090</option>
+                        </optgroup>
+                        <option value="Not sure">Пока не уверен</option>
+                    </select>
+                </div>
+                <div class="input-group"><textarea id="form-message" rows="3" placeholder=" " aria-label="Tell us about your rig"></textarea><label>Бюджет / примечания</label></div>
+                <div id="form-error" role="alert" aria-live="assertive" style="color:#f87171;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;margin-bottom:1rem;display:none;"></div>
+                <div id="form-status" role="status" aria-live="polite" style="color:#76b900;font-size:0.9rem;font-weight:600;margin-bottom:1rem;min-height:1.2em;"></div>
+                <div class="magnetic interactable"><button id="submit-btn" class="submit-btn" type="button" onclick="submitForm()">Отправить заявку</button></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-wm" id="footer-wm">RTX HUB</div>
+        <div class="footer-grid">
+            <div class="footer-brand fade-up">
+                <div class="footer-brand-name">RTX HUB</div>
+                <p class="footer-brand-desc">Гайд по серии GeForce RTX — трассировка лучей, DLSS, архитектуры Ada и Blackwell, бенчмарки и советы по покупке.</p>
+            </div>
+            <div class="footer-col fade-up" style="--d:1">
+                <h4>Модели</h4>
+                <a href="#model-rtx-4090" class="interactable">RTX 4090</a>
+                <a href="#model-rtx-4080-super" class="interactable">RTX 4080 Super</a>
+                <a href="#model-rtx-4070-super" class="interactable">RTX 4070 Super</a>
+                <a href="#model-rtx-4060-ti" class="interactable">RTX 4060 Ti</a>
+                <a href="#model-rtx-5090" class="interactable">RTX 5090</a>
+            </div>
+            <div class="footer-col fade-up" style="--d:2">
+                <h4>Технологии</h4>
+                <a href="#capabilities" class="interactable">Ray Tracing</a>
+                <a href="#capabilities" class="interactable">DLSS</a>
+                <a href="#capabilities" class="interactable">Ядра CUDA</a>
+                <a href="#capabilities" class="interactable">NVENC</a>
+                <a href="#process" class="interactable">История</a>
+            </div>
+            <div class="footer-col fade-up" style="--d:3">
+                <h4>Ресурсы</h4>
+                <a href="#faq" class="interactable">Гайд по покупке</a>
+                <a href="#testimonials" class="interactable">Обзоры</a>
+                <a href="#contact" class="interactable">Подбор</a>
+                <a href="https://www.nvidia.com" target="_blank" class="interactable">NVIDIA.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom fade-up" style="--d:4">
+            <div class="footer-copy">·© 2026 RTX HUB. Фанатский гайд по серии RTX. NVIDIA и GeForce RTX — торговые знаки NVIDIA Corporation.</div>
+            <a href="#hero" class="footer-top interactable" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+                <span>Наверх</span>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 14V4M9 4L4 9M9 4L14 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/gpu.js" defer></script>
+    <script src="js/form.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
